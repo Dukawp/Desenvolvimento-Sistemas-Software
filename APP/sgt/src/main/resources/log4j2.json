@@ -1,0 +1,45 @@
+{
+  "configuration": {
+    "name": "Default",
+    "properties": {
+      "property": [
+        {
+          "name": "log-path",
+          "value": "logs"
+        },
+        {
+          "name": "archive",
+          "value": "${log-path}/archive"
+        }
+      ]
+    },
+    "appenders": {
+      "Console": {
+        "name": "Console-Appender",
+        "target": "SYSTEM_OUT",
+        "PatternLayout": {
+          "pattern": "[%-5level] %d{yyyy-MM-dd HH:mm:ss.SSS} [%t] %c{1} - %msg%n"
+        }
+      }
+    },
+    "loggers": {
+      "logger": {
+        "name": "org.uminho.sgt.log4j2json",
+        "level": "debug",
+        "additivity": "false",
+        "appender-ref": [
+          {
+            "ref": "Console-Appender",
+            "level": "info"
+          }
+        ]
+      },
+      "root": {
+        "level": "debug",
+        "appender-ref": {
+          "ref": "Console-Appender"
+        }
+      }
+    }
+  }
+}
